@@ -25,7 +25,7 @@ SECRET_KEY = 'dc!igvt!4fy^i&k@fz3p=@q9_+)aa*$8&b(+21nl-ur0gsqqfg'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1', '<iskander>.pythonanywhere.com']
+ALLOWED_HOSTS = ['127.0.0.1', 'iskan20022.pythonanywhere.com']
 
 
 # Application definition
