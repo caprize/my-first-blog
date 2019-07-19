@@ -1,0 +1,27 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+    
+    <!-- <form method="POST" class="order-form">{% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="save btn btn-default">save</button>
+    </form> -->
+    <div class="pay">
+        <form method="POST" class="order-form" style="display:flex; flex-direction: column;">
+            {% csrf_token %}
+          	<label>Ваш телеграмм айди в формате @banan</label>
+          	<input type="text" class="input_style" name="tgid" value="" maxlength="200" id="id_tgid" required />
+            <!-- <input type="text" id='dops' name='Order'  class="input_style" placeholder="Суть вашего заказа" > -->
+            <!-- {{ form.tgid}} -->
+            <!-- <input type="text" id='tgid' name="Order" class="input_style" placeholder="Телеграм логин в формате @first"> -->
+            
+            <tr><th><label for="id_dops">Какого бота вы хотите купить</label></th><td><textarea name="dops"class="input_style"  cols="40" rows="10" required id="id_dops"></textarea></td></tr>
+            <button type="submit" class="button_input_style">
+                
+                
+                Сделать заказ
+                
+            </button>
+        </form>
+    </div>
+{% endblock %}

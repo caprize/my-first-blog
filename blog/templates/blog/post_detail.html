@@ -1,0 +1,86 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+    <!-- <div class="post">
+        {% if post.published_date %}
+            <div class="date">
+                {{ post.published_date }}
+            </div>
+        {% else %}
+            <a class="btn btn-default" href="{% url 'post_publish' pk=post.pk %}">Publish</a>
+        {% endif %}
+        {% if user.is_authenticated %}
+             <a class="btn btn-default" href="{% url 'post_edit' pk=post.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
+             <a class="btn btn-default" href="{% url 'post_remove' pk=post.pk %}"><span class="glyphicon glyphicon-remove"></span></a>
+        {% endif %}
+        <h1>{{ post.title }}</h1>
+        <p>{{ post.text|linebreaksbr }}</p>
+    </div> -->
+    <div class="all">
+        <div class="header">
+            <div class="container">
+                <div class="header_flex">
+                    
+                    <nav class="header_nav">
+                        <a class="header_nav_item" href="{% url 'send_bot' %}">Купить бота</a>
+                        <a class="header_nav_item" href="{% url 'post_list' %}">Получение бота</a>
+                        <a class="header_nav_item" href="{% url 'post_list' %}">Дополнительно</a>
+                    </nav>
+                    <div class="our_contacts">
+                        <div class="contact_info">
+                            Как с нами связаться?
+                        </div>
+                        <nav class="nav_contacts">
+                            <a href="https://t.me/caprizebog" class="nav_contacts_item">Telegram</a>
+                            <a href="https://vk.com/vagizov98" class="nav_contacts_item">Вконтакте</a>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="info_bot_1">
+            <div class="container">
+                <div class="our_bots">
+                    {{ post.title }}
+                </div>
+                <div class="bot_info_1_text">
+                    {{ post.text|linebreaksbr }}
+                </div>
+                <!-- <div class="pay">
+                    <form method="POST" class="order-form" style="display:flex; flex-direction: column;">
+                        {% csrf_token %}
+                        <label>Ваш телеграмм айди</label>
+                        <input type="text" name="tgid" value="" maxlength="200" id="id_tgid" required />
+            <input type="text" id='dops' name='Order'  class="input_style" placeholder="Суть вашего заказа" > -->
+            <!-- {{ form.tgid}} -->
+            <!-- <input type="text" id='tgid' name="Order" class="input_style" placeholder="Телеграм логин в формате @first">
+            
+                        <tr><th><label for="id_dops">Какого бота вы хотите купить</label></th><td><textarea name="dops" cols="40" rows="10" required id="id_dops"></textarea></td></tr>
+                        <button type="submit" class="button_input_style">
+                            <a class="header_nav_item" href="{% url 'send_bot' %}">
+                
+                            
+                            Сделать заказ
+                            </a>
+                        </button>
+                    </form>
+                </div> --> 
+            </div>
+        </div>
+        <div class="footer">
+            <div class="container">
+                <div class="about_project">
+                    <div class="about_project_item">
+                        Сайт создан <a href="https://t.me/caprizebog" class="about_project_link">Вагизовым Искандером</a> и <a href="https://t.me/LimiO_ananas" class="about_project_link">Рябых Альбертом</a> в 2018 году
+                    </div>
+                    <div class="about_project_item">
+                        По поводу обсуждения дополнительных функций для бота или написания нового, обращаться в телеграм <a href="https://t.me/LimiO_ananas" class="about_project_link">@LimiO_ananas</a>
+                    </div>
+                    <div class="about_project_item">
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

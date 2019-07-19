@@ -1,22 +1,129 @@
-<html>
-    <head>
-        <title>Django Girls blog</title>
-    </head>
-    <body>
-        <div>
-            <h1><a href="/">Django Girls Blog</a></h1>
-        </div>
+{% extends 'blog/base.html' %}
+{% load static %}
+{% block content %}
 
-        <div>
-            <p>published: 14.06.2014, 12:14</p>
-            <h2><a href="">My first post</a></h2>
-            <p>Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
+    <!-- {% for post in posts %}
+        <div class="post">
+            <div class="date">
+                {{ post.published_date }}
+            </div>
+            <h1><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h1>
+            <p>{{ post.text|linebreaksbr }}</p>
         </div>
+    {% endfor %} -->
+    <div class="all">
+        <div class="header">
+            <div class="container">
+                <div class="header_logo">
+                </div>
+                <nav class="header_nav">
+                    <a class="header_nav_item" href="{% url 'send_bot' %}">Купить бота</a>
+                    
+                    <a class="header_nav_item" href="#bot_take">Получение бота</a>
+                    <a class="header_nav_item" href="#other">Дополнительно</a>
+                </nav>
+                <div class="our_contacts">
+                    <div class="contact_info">
+                        Как с нами связаться?
+                    </div>
+                    <nav class="nav_contacts">
+                        <a href="https://t.me/LimiO_ananas" class="nav_contacts_item">Telegram</a>
+                        <a href="https://vk.com/vagizov98" class="nav_contacts_item">Вконтакте</a>
+                    </nav>
+                </div>
+            </div>
+        </div> 
 
-        <div>
-            <p>published: 14.06.2014, 12:14</p>
-            <h2><a href="">My second post</a></h2>
-            <p>Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut f.</p>
+        <div class="main_bots">
+            <div class="container">
+                <div class="our_bots">
+                    Наши боты
+                </div>
+                
+                <div class="list_of_bots">
+
+                    {% for post in posts %}
+                        <a href="{% url 'post_detail' pk=post.pk %}" class="bot_link">
+                    
+                            <div class="bot">
+                                <div class="bot_name">
+                                    {{ post.title }}
+                                </div>
+                                <div class="bot_text">
+                                    <p>{{ post.maintext|linebreaksbr }}</p>
+                                    <img src="{{ post.image }}">  
+                                </div>
+                            </div>
+                        </a>
+                    <!-- <a href="#" class="bot_link">
+                        <div class="bot">
+                            <div class="bot_name">
+                                Бот для продаж
+                            </div>
+                            <div class="bot_text">
+                                Что он умеет?<br>Вы можете привязать его к серверу и он будет сам продавать за вас товары
+                            </div>
+                        </div>
+                    </a>
+                    <a href="#" class="bot_link">
+                        <div class="bot">
+                            <div class="bot_name">
+                                Бот для продаж
+                            </div>
+                            <div class="bot_text">
+                                Что он умеет?<br>Вы можете привязать его к серверу и он будет сам продавать за вас товары
+                            </div>
+                        </div>
+                    </a> -->
+                    {% endfor %}
+                </div>
+                
+                <div class="about_sell">
+                    <a name="sell">
+                        <div class="about_header" name="sell">
+                            Все о покупке бота
+                        </div>
+                    </a>
+                    <div class="about_main">
+                        типо текст
+                    </div>
+                </div>
+                <div class="about_sell">
+                    <a name="bot_take">
+                        <div class="about_header">
+                            Получение бота
+                        </div>
+                    </a>
+                    <div class="about_main">
+                        Чтобы получить нашего бота нужно оставить заявку, наши менеджеры сразу с вами свяжутся и обговорят детали сделки
+                    </div>
+                </div>
+                <div class="about_sell">
+                    <a name="other">
+                        <div class="about_header" name="other">
+                            Дополнительно
+                        </div>
+                    </a>
+                    <div class="about_main">
+                        типо текст
+                    </div>
+                </div>
+            </div>
         </div>
-    </body>
-</html>
+        <div class="footer">
+            <div class="container">
+                <div class="about_project">
+                    <div class="about_project_item">
+                        Сайт создан <a href="https://vk.com/vagizov98" class="about_project_link">Вагизовым Искандером</a> и <a href="https://t.me/LimiO_ananas" class="about_project_link">Рябых Альбертом</a> в 2018 году
+                    </div>
+                    <div class="about_project_item">
+                        По поводу обсуждения дополнительных функций для бота или написания нового, обращаться в телеграм <a href="https://t.me/LimiO_ananas" class="about_project_link">@LimiO_ananas</a>
+                    </div>
+                    <div class="about_project_item">
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
